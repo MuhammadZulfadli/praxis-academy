@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Find Plat Nomor Kendaraan Indonesia</title>
+  </head>
+  <body>
+    <script>
+      let platNopol = () => {
+        let inputNopol = prompt("Input Plat Nomor", "AB xxx xx");
+        let pattern = /^[A-Z]{1,2}\s\d{1,4}\s[A-Z]{1,3}$/;
+        let result = inputNopol.match(pattern);
+        if (result) {
+          alert(`${result} plat nomor kendaraan di Indonesia`);
+        } else {
+          alert(`${result} Bukan plat nomor kendaraan di Indonesia`);
+        }
+      };
+      platNopol();
+    </script>
+  </body>
+</html>

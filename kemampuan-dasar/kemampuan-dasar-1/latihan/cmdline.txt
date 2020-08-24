@@ -1,0 +1,41 @@
+Command Line Interface pada Sistem Operasi Windows
+
+1.	CD = D: cd fadli\praxis-academy\kemampuan-dasar
+ 
+2.	Cls = D:\fadli\praxis-academy\kemampuan-dasar>cls
+ 
+3.	Date = D:\fadli\praxis-academy\kemampuan-dasar>date /t
+ 
+4.	mkdir = D:\fadli\praxis-academy\kemampuan-dasar>mkdir powershellscripts
+ 
+5.	rmdir = D:\fadli\praxis-academy\kemampuan-dasar>rmdir powershellscripts
+ 
+6.	ipconfig = D:\fadli\praxis-academy\kemampuan-dasar>ipconfig
+ 
+7.	hotname = D:\fadli\praxis-academy\kemampuan-dasar>hostname
+ 
+8.	dir = D:\fadli\praxis-academy\kemampuan-dasar>dir
+ 
+9.	tracert = D:\fadli\praxis-academy\kemampuan-dasar>tracert praxisacademy.id
+ 
+10.	whoami = D:\fadli\praxis-academy\kemampuan-dasar>whoami
+ 
+11.	help = D:\fadli\praxis-academy\kemampuan-dasar>help
+ 
+12.	tasklist = D:\fadli\praxis-academy\kemampuan-dasar>tasklist
+ 
+13.	D:\fadli\praxis-academy\kemampuan-dasar>ping praxisacademy.id
+ 
+14.	Rename = D:\fadli\praxis-academy\kemampuan-dasar>rename testing tested
+ 
+15.	Erase = D:\fadli\praxis-academy\kemampuan-dasar>erase coba.txt
+ 
+16.	Nslookup ls = D:\fadli\praxis-academy\kemampuan-dasar>nslookup ls
+ 
+17.	Netstat = D:\fadli\praxis-academy\kemampuan-dasar>netstat –a
+ 
+18.	Msinfo32 = D:\fadli\praxis-academy\kemampuan-dasar>msinfo32 /showcategories
+ 
+19.	Getmac = D:\fadli\praxis-academy\kemampuan-dasar>getmac
+ 
+20.	exit = D:\fadli\praxis-academy\kemampuan-dasar>exit

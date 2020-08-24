@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Check Domain Email</title>
+  </head>
+  <body>
+    <script>
+      let email = () => {
+        let username = prompt("Username", "Username");
+        let email = prompt("Email", "xxx@gmail.com");
+        let pattern = /^[^\s@]+@[^\s@]+$/;
+        let result = email.match(pattern);
+        if (result) {
+          alert(`Halo username anda ${username}, email anda adalah ${result}`);
+        } else {
+          alert(
+            `Halo username anda ${username}, email anda tidak sesuai. Mohon isi sesuai format`
+          );
+        }
+      };
+      email();
+    </script>
+  </body>
+</html>
