@@ -23,7 +23,3 @@ console.log(t.Constructor === Triangle);
 console.log(Shape.isPrototypeOf(t));
 console.log(t.getPerimeter());
 console.log(t.getType());
-
-for (let i = 0; i < t; i++) {
-  console.log(i);
-}
