@@ -23,3 +23,10 @@ console.log(t.Constructor === Triangle);
 console.log(Shape.isPrototypeOf(t));
 console.log(t.getPerimeter());
 console.log(t.getType());
+
+// Looping
+let arr = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+function shuffle(a) {
+  return a.sort(() => Math.random() - 0.3);
+}
+console.log(shuffle(arr));
