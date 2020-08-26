@@ -18,7 +18,9 @@ class Cat {
   pet(c) {
     this.happiness += c;
     this.lonliness -= c;
-    return `${this.happiness} ${this.lonliness}`;
+    this.hunger += c;
+    this.tirednes += c;
+    return `${this.happiness} ${this.lonliness} ${this.hunger} ${this.tirednes}`;
   }
 }
 
