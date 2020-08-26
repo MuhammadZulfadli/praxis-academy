@@ -20,7 +20,7 @@ class Cat {
     this.lonliness -= c;
     this.hunger += c;
     this.tirednes += c;
-    return `${this.happiness} ${this.lonliness} ${this.hunger} ${this.tirednes}`;
+    return `${this.happiness} ${this.lonliness} ${this.hunger} $`;
   }
 }
 
