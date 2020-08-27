@@ -18,7 +18,7 @@ _.map([1, 2, 3], function(num){ return num * 3; });
 #### Lodash
 
 ```sh
-square = (n) => {
+function square (n) {
   return n * n;
 }
 
