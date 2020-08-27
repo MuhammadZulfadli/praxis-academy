@@ -15,5 +15,4 @@ console.log(a);
 let b = Lodash.find(person, function (c) {
   return c.age < 22;
 });
-
 console.log(b);

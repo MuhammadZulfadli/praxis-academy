@@ -15,13 +15,13 @@ let person = [
 ];
 
 // Underscore with Filter
-let f = U.filter(person, function (d) {
+let f = U.filter(person, (d) => {
   return d.active == false;
 });
 console.log(f);
 
 // Underscore with Find
-let b = U.find(person, function (c) {
-  return c.age < 22;
+let b = U.find(person, (c) => {
+  return c.age > 22;
 });
 console.log(b);
