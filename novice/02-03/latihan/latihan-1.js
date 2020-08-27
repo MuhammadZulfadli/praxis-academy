@@ -67,3 +67,22 @@ let sumFPChain = meetups
     return acc + m;
   }, 0);
 console.log(sumFPChain);
+
+// side Effect
+let meetup = { name: "js", isActive: true, members: 49 };
+const scheduleMeetup = (date, place) => {
+  meetup.date = date;
+  meetup.place = place;
+
+  if (meetup.members < 50) meetup.isActive = false;
+};
+
+const publishMeetup = () => {
+  if (meetup.isActive) {
+    meetup.publish = true;
+  }
+};
+
+scheduleMeetup("today", "Catalonia");
+publishMeetup();
+console.log(meetup);
