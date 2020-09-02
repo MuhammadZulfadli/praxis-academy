@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<link rel="stylesheet" href="" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app-1">
+			<span>Pesan: {{ msg }}</span>
+			<span v-once>Ini tidak akan pernah berubah: {{ msg }}</span>
+		</div>
+
+		<div id="app-2">
+			<div class="channels">TEST: <span v-html="channel"></span></div>
+		</div>
+
+		<div id="app-3">
+			<span if="seen">Kamu bisa melihat saya</span>
+		</div>
+
+		<div id="app-4">
+			<p>{{title}}</p>
+			<a v-bind:href="url"> Click aja dulu </a>
+		</div>
+
+		<div id="app-5">
+			<p>{{title}}</p>
+			<button v-on:click="counter += 1">Tambah</button>
+			<p>Tambah {{counter}}</p>
+		</div>
+
+		<script>
+			let app1 = new Vue({
+				el: "#app-1",
+				data: {
+					msg: "Hai, ini Vue!",
+				},
+			});
+
+			let app = new Vue({
+				el: "#app-2",
+				data: {
+					channel: "<b>Ini menggunakan rawHtml</b>",
+				},
+			});
+
+			let app3 = new Vue({
+				el: "#app-3",
+				data: {
+					seen: true,
+				},
+			});
+
+			let app4 = new Vue({
+				el: "#app-4",
+				data: {
+					title: "Ini contoh v-bind",
+					url: "https://google.com",
+				},
+			});
+
+			let app5 = new Vue({
+				el: "#app-5",
+				data: {
+					title: "Ini Contoh v-on ",
+					counter: 0,
+				},
+			});
+		</script>
+	</body>
+</html>

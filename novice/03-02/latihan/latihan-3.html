@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<link rel="stylesheet" href="" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="contoh">
+			<p>Ini contoh compute{{title}}</p>
+			<p>Pesan asli: {{origanl}}</p>
+			<p>Pesan dibalik: {{reversed}}</p>
+		</div>
+
+		<!-- contoh computed getter-->
+
+		<div id="contoh-2">
+			<p>Ini computed getter</p>
+			<p>Firstname : {{firstname}}</p>
+			<p>Lastname : {{lastname}}</p>
+			<p>Fullname: {{fullname}}</p>
+		</div>
+		<!-- contoh computed setter -->
+		<div id="contoh-3">
+			<p>Ini computed setter</p>
+			<p>Firstname : {{firstname}}</p>
+			<p>Lastname : {{lastname}}</p>
+			<p>Fullname: {{fullname}}</p>
+		</div>
+
+		<div id="watch-example">
+			<p>
+				Tanyakan pertanyaan iya/tidak:
+				<input v-model="question" />
+			</p>
+			<p>{{ answer }}</p>
+		</div>
+
+		<script>
+			let contoh1 = new Vue({
+				el: "#contoh",
+				data: {
+					title: "Ini contoh computed",
+					origanl: "halo",
+				},
+				computed: {
+					reversed: function () {
+						return this.origanl.split("").reverse().join("");
+					},
+				},
+			});
+
+			// <!-- contoh computed getter-->
+
+			let contoh2 = new Vue({
+				el: "#contoh-2",
+				data: {
+					firstname: "Muhammad Zulfadli",
+					lastname: "Simatupang",
+				},
+				computed: {
+					fullname: function () {
+						return this.firstname + " " + this.lastname;
+					},
+				},
+			});
+
+			let contoh3 = new Vue({
+				el: "#contoh-3",
+				data: {
+					firstname: "Muhammad Zulfadli",
+					lastname: "Simatupang",
+				},
+				computed: {
+					fullname: {
+						get: function () {
+							return this.firstname + " " + this.lastname;
+						},
+						set: function (newValue) {
+							let names = newValue.split(" ");
+							this.firstname = names[0];
+							this.lastname = names[names.length - 1];
+						},
+					},
+				},
+			});
+
+			let watchExampleVM = new Vue({
+				el: "#watch-example",
+				data: {
+					question: "",
+					answer:
+						"Saya tidak dapat memberikan jawaban sampai anda bertanya kepada saya!",
+				},
+				watch: {
+					// whenever question changes, this function will run
+					question: function (newQuestion, oldQuestion) {
+						this.answer = "Waiting for you to stop typing...";
+						this.debouncedGetAnswer();
+					},
+				},
+				created: function () {
+					// _.debounce adalah fungsi yang disediakan oleh lodash untuk membatasi caranya
+					// sering kali operasi expensive bisa dijalankan.
+					// Dalam hal ini, kami ingin membatasi seberapa sering kami mengakses
+					// yesno.wtf/api, menunggu hingga pengguna sepenuhnya
+					// selesai mengetik sebelum membuat permintaan ajax. Untuk mempelajari
+					// lebih lanjut tentang fungsi _.debounce (dan sepupunya
+					// _.rottle), kunjungi: https://lodash.com/docs#debounce
+					this.debouncedGetAnswer = _.debounce(this.getAnswer, 500);
+				},
+				methods: {
+					getAnswer: function () {
+						if (this.question.indexOf("?") === -1) {
+							this.answer =
+								"Pertanyaan biasanya berisi tanda tanya. ;-)";
+							return;
+						}
+						this.answer = "Berfikir...";
+						var vm = this;
+						axios
+							.get("https://yesno.wtf/api")
+							.then(function (response) {
+								vm.answer = _.capitalize(response.data.answer);
+							})
+							.catch(function (error) {
+								vm.answer =
+									"Error! Tidak dapat meraih API. " + error;
+							});
+					},
+				},
+			});
+		</script>
+	</body>
+</html>

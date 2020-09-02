@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<link rel="stylesheet" href="" />
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<ul id="contoh-1">
+			<li v-for="item in items">
+				{{ item.message }}
+			</li>
+		</ul>
+
+		<ul id="contoh-2">
+			<li v-for="(item, index) in items">
+				{{ parentMessage }} - {{ index }} - {{ item.message }}
+			</li>
+		</ul>
+
+		<
+		<ul id="v-for-object" class="demo">
+			<li v-for="value in object">{{value}}</li>
+		</ul>
+		<script>
+			let contoh1 = new Vue({
+				el: "#contoh-1",
+				data: {
+					items: [
+						{ message: "Uniqlo" },
+						{ message: "HnM" },
+						{ message: "Pull & Bear" },
+					],
+				},
+			});
+
+			let contoh2 = new Vue({
+				el: "#contoh-2",
+				data: {
+					parentMessage: "Parent",
+					items: [
+						{ message: "Uniqlo" },
+						{ message: "HnM" },
+						{ message: "Pull & Bear" },
+					],
+				},
+			});
+
+			let contoh3 = new Vue({
+				el: "#v-for-object",
+				data: {
+					object: {
+						firstname: "Muhammad",
+						lastname: "zulfadli",
+						age: 24,
+					}
+				},
+			});
+		</script>
+	</body>
+</html>

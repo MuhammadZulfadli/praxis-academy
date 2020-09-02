@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8" />
+		<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+		<title></title>
+		<link rel="stylesheet" href="" />
+		<!-- versi development, berisi peringatan yang sangat membantu -->
+		<script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+	</head>
+	<body>
+		<div id="app">
+			{{ pesan }}
+		</div>
+
+		<div id="app-2">
+			<span v-bind:title="pesan">
+				jam berapa sekarang?
+			</span>
+		</div>
+
+		<div id="app-3">
+			<span v-if="terlihat"
+				>Saya bisa dilihat. Mau bukti? cek konsol dengan "app3.terlihat"
+				maka akan "true"</span
+			>
+		</div>
+
+		<div id="app-4">
+			<ol>
+				<li v-for="todo in todos">
+					{{ todo.teks }}
+				</li>
+			</ol>
+		</div>
+
+		<div id="app-5">
+			<p>{{ pesan }}</p>
+			<button v-on:click="balikkanPesan">Reverse Message</button>
+		</div>
+
+		<div id="app-6">
+			<p>{{ pesan }}</p>
+			<input v-model="pesan" />
+		</div>
+
+		<div id="app-7">
+			<ol>
+				<todo-item
+					v-for="item in cart"
+					v-bind:todo="item"
+					v-bind:key="item.id"
+				></todo-item>
+			</ol>
+		</div>
+
+		<script>
+			let app = new Vue({
+				el: "#app",
+				data: {
+					pesan: "Hai, ini Vue!",
+				},
+			});
+			app.pesan = "Saya Muhammad Zulfadli";
+
+			let app2 = new Vue({
+				el: "#app-2",
+				data: {
+					pesan: "Sekarang " + new Date().toLocaleString(),
+				},
+			});
+
+			let app3 = new Vue({
+				el: "#app-3",
+				data: {
+					terlihat: true,
+				},
+			});
+			let app4 = new Vue({
+				el: "#app-4",
+				data: {
+					todos: [
+						{ teks: "Belajar JavaScript" },
+						{ teks: "Belajar Vue" },
+						{ teks: "Buat proyek keren" },
+					],
+				},
+			});
+
+			let app5 = new Vue({
+				el: "#app-5",
+				data: {
+					pesan: "Halo",
+				},
+				methods: {
+					balikkanPesan: function () {
+						this.pesan = this.pesan.split("").reverse().join("");
+					},
+				},
+			});
+			let app6 = new Vue({
+				el: "#app-6",
+				data: {
+					pesan: "halo Vue!",
+				},
+			});
+
+			// Vue.component("todo-item", {
+			// 	props: ["todo"],
+			// 	template: "<li>{{todo.barang}}</li>"
+			// });
+
+			// let app7 = new Vue({
+			// 	el:"#app-7",
+			// 	data:{
+			// 		cart:[
+			// 			{id:1, barang:"Pomade"}.
+			// 			{id:2, barang:"Deodoran"},
+			// 			{id:3, barang:"Sepatu"},
+			// 		]
+			// 	}
+			// )
+			Vue.component("todo-item", {
+				props: ["todo"],
+				template: "<li>{{ todo.barang }}</li>",
+			});
+
+			var app7 = new Vue({
+				el: "#app-7",
+				data: {
+					cart: [
+						{ id: 0, barang: "Sayuran" },
+						{ id: 1, barang: "Keju" },
+						{ id: 2, barang: "Makanan yang lain" },
+					],
+				},
+			});
+		</script>
+	</body>
+</html>
