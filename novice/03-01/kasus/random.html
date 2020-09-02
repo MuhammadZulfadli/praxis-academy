@@ -29,7 +29,7 @@
         let color1 = "#";
         let color2 = "#";
 
-        function randomColor(param) {
+        function warnaWarni(param) {
           for (let i = 0; i < 6; i++) {
             param += letters[Math.floor(Math.random() * 5)]
           }
@@ -37,8 +37,8 @@
         }
         for (var i = 0; i < div.length; i++) {
           if (i % 2 == 0) 
-            div[i].style.backgroundColor = randomColor(color1);
-          else div[i].style.backgroundColor = randomColor(color2);
+            div[i].style.backgroundColor = warnaWarni(color1);
+          else div[i].style.backgroundColor = warnaWarni(color2);
           
         }
       }, 1000)
