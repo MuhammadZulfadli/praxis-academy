@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Random</title>
+    <style>
+      .boxes {
+        width: 100px;
+        height: 100px;
+        margin: 2px;
+        background-color: #ff5733;
+        float: flex;
+      }
+    </style>
+  </head>
+  <body>
+    <script>
+      window.onload = () => {
+        for (let i = 0; i < 5; i++) {
+          let kotak = document.createElement("div");
+          kotak.setAttribute("class", "boxes");
+          document.body.appendChild(kotak);
+        }
+      };
+      setInterval(()=>{
+        let div = document.querySelectorAll(".boxes");
+        let letters = "123456789BCDEF";
+        let color1 = "#";
+        let color2 = "#";
+
+        function randomColor(param) {
+          for (let i = 0; i < 6; i++) {
+            param += letters[Math.floor(Math.random() * 5)]
+          }
+          return param;
+        }
+        for (var i = 0; i < div.length; i++) {
+          if (i % 2 == 0) 
+            div[i].style.backgroundColor = randomColor(color1);
+          else div[i].style.backgroundColor = randomColor(color2);
+          
+        }
+      }, 1000)
+    </script>
+  </body>
+</html>
