@@ -26,12 +26,8 @@
 </template>
 
 <script>
-// demo data
-export default {
-  name: "Modal",
-};
+export default {};
 </script>
-
 <style scoped>
 .modal-mask {
   position: fixed;

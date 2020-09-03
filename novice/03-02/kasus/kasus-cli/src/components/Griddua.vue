@@ -4,10 +4,10 @@
       <thead>
         <tr>
           <th
-            v-for="(key, data) in columns"
+            v-for="key in columns"
             @click="sortBy(key)"
             :class="{ active: sortKey == key }"
-            :key="data"
+            v-bind:key="key"
           >
             {{ key | capitalize }}
             <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'"></span>
@@ -15,17 +15,16 @@
         </tr>
       </thead>
       <tbody>
-        <tr v-for="(entry, data) in filteredHeroes" :key="data">
-          <td v-for="(key, data) in columns" :key="data">{{entry[key]}}</td>
+        <tr v-for="entry in filteredHeroes" v-bind:key="entry">
+          <td v-for="key in columns" v-bind:key="key">{{entry[key]}}</td>
         </tr>
       </tbody>
     </table>
+    <h1>{{heroes}}</h1>
   </div>
 </template>
 <script>
-// register the grid component
 export default {
-  name: "Grid",
   props: {
     heroes: Array,
     columns: Array,
