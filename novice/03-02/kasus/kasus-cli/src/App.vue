@@ -1,13 +1,5 @@
 <template>
   <div>
-    <div id="demo">
-      <form id="search">
-        Search
-        <input name="query" v-model="searchQuery" />
-      </form>
-      <grid :heroes="gridData" :columns="gridColumns" :filter-key="searchQuery"></grid>
-    </div>
-    <br />
     <div id="app">
       <button id="show-modal" @click="showModal = true">Show Modal</button>
       <!-- use the modal component, pass in the prop -->
@@ -18,6 +10,14 @@
         -->
         <h3 slot="header">custom header</h3>
       </modal>
+    </div>
+    <br />
+    <div id="demo">
+      <form id="search">
+        Search
+        <input name="query" v-model="searchQuery" />
+      </form>
+      <grid :heroes="gridData" :columns="gridColumns" :filter-key="searchQuery"></grid>
     </div>
   </div>
 </template>
