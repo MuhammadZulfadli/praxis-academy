@@ -1,14 +1,17 @@
 <template>
   <div>
     <h2>List data</h2>
-    <ul v-for="user in users" :key="user.id">
-      <li>
+    <span v-for="user in users" :key="user.id">
+      <span>
         <!-- <span>{{ user.name }}</span> -->
-        <router-link :to="{ name: 'ListData', params: { id: user.id } }">{{
+        <router-link :to="{ name: 'ListData', params: { id: user.id } }">
+          {{
           user.name
-        }}</router-link>
-      </li>
-    </ul>
+          }}
+          <br />
+        </router-link>
+      </span>
+    </span>
   </div>
 </template>
 
