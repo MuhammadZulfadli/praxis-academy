@@ -12,17 +12,16 @@
     </v-main>
 
     <!-- Footer -->
-    <v-footer app>
-      <v-spacer></v-spacer>
-      <div>&copy; {{ new Date().getFullYear() }}</div>
-    </v-footer>
+    <Footer />
   </v-app>
 </template>
 <script>
 import Navbar from "./components/Navbar";
+import Footer from "./components/Footer";
 export default {
   components: {
     Navbar,
+    Footer,
   },
 };
 </script>
