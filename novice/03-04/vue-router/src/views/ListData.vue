@@ -2,13 +2,12 @@
   <div>
     <h2>Detail User</h2>
     <h3>{{ user.name }}</h3>
-    <ul>
-      <li>{{ user.username }}</li>
-      <li>{{ user.email }}</li>
-      <li>{{ user.address }}</li>
-      <li>{{ user.phone }}</li>
-      <li>{{ user.website }}</li>
-    </ul>
+
+    <p>Username : {{ user.username }}</p>
+    <p>Email : {{ user.email }}</p>
+    <p>Address: {{ user.address }}</p>
+    <p>Phone Number : {{ user.phone }}</p>
+    <p>WEbiste: {{ user.website }}</p>
   </div>
 </template>
 
@@ -20,22 +19,11 @@ export default {
       user: [],
     };
   },
-  created() {
-    this.getUserData();
-  },
-  methods: {
-    getUserData() {
-      axios
-        .get(
-          `https://jsonplaceholder.typicode.com/users/${this.$route.params.id}`
-        )
-        .then((res) => {
-          this.user = res.data;
-        })
-        .catch((error) => {
-          console.log(error);
-        });
-    },
+  async created() {
+    const response = await axios.get(
+      `https://jsonplaceholder.typicode.com/users/${this.$route.params.id}`
+    );
+    this.user = response.data;
   },
 };
 </script>

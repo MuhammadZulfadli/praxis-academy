@@ -5,9 +5,7 @@
       <span>
         <!-- <span>{{ user.name }}</span> -->
         <router-link :to="{ name: 'ListData', params: { id: user.id } }">
-          {{
-          user.name
-          }}
+          {{ user.name }}
           <br />
         </router-link>
       </span>
@@ -24,20 +22,11 @@ export default {
     };
   },
 
-  mounted() {
-    this.getAll();
-  },
-  methods: {
-    getAll() {
-      axios
-        .get("https://jsonplaceholder.typicode.com/users")
-        .then((res) => {
-          this.users = res.data;
-        })
-        .catch((err) => {
-          console.log(err);
-        });
-    },
+  async mounted() {
+    const response = await axios.get(
+      "https://jsonplaceholder.typicode.com/users"
+    );
+    this.users = response.data;
   },
 };
 </script>
