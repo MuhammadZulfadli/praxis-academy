@@ -36,21 +36,27 @@
               ></v-text-field>
 
               <span v-if="!editId">
-                <v-btn small color="primary" @click="edit(todo)"
+                <v-btn class="mx-2" small color="primary" @click="edit(todo)"
                   ><v-icon>mdi-pencil-outline</v-icon></v-btn
                 >
-                ||
-                <v-btn small color="warning" @click="deleteTodo(todo.id)"
+                <v-btn
+                  class="mx-2"
+                  small
+                  color="warning"
+                  @click="deleteTodo(todo.id)"
                   ><v-icon>mdi-delete</v-icon></v-btn
                 >
               </span>
 
               <span v-if="editId === todo.id">
-                <v-btn small color="primary" @click="updateTodo(todo)"
+                <v-btn
+                  class="mx-2"
+                  small
+                  color="primary"
+                  @click="updateTodo(todo)"
                   ><v-icon>mdi-check</v-icon></v-btn
                 >
-                ||
-                <v-btn small color="error" @click="cancel()"
+                <v-btn class="mx-2" small color="error" @click="cancel()"
                   ><v-icon>mdi-cancel</v-icon></v-btn
                 >
               </span>
