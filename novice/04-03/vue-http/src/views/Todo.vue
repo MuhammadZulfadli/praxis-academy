@@ -6,7 +6,7 @@
 
       <!-- input -->
       <v-text-field label="todo" v-model="newTask" @keyup.enter="addTodo"></v-text-field>
-      <v-btn small color="success" @click="addTodo()">
+      <v-btn fab dark small color="success" @click="addTodo()">
         <v-icon dark>mdi-plus</v-icon>
       </v-btn>
     </v-container>
@@ -31,19 +31,19 @@
               ></v-text-field>
 
               <span v-if="!editId">
-                <v-btn class="mx-2" small color="primary" @click="edit(todo)">
+                <v-btn class="mx-2" fab dark small color="primary" @click="edit(todo)">
                   <v-icon>mdi-pencil-outline</v-icon>
                 </v-btn>
-                <v-btn class="mx-2" small color="warning" @click="deleteTodo(todo.id)">
+                <v-btn class="mx-2" fab dark small color="warning" @click="deleteTodo(todo.id)">
                   <v-icon>mdi-delete</v-icon>
                 </v-btn>
               </span>
 
               <span v-if="editId === todo.id">
-                <v-btn class="mx-2" small color="primary" @click="updateTodo(todo)">
+                <v-btn class="mx-2" fab dark small color="primary" @click="updateTodo(todo)">
                   <v-icon>mdi-check</v-icon>
                 </v-btn>
-                <v-btn class="mx-2" small color="error" @click="cancel()">
+                <v-btn class="mx-2" fab dark small color="error" @click="cancel()">
                   <v-icon>mdi-cancel</v-icon>
                 </v-btn>
               </span>
