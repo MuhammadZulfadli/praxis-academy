@@ -5,11 +5,7 @@
       <h4>Input Task</h4>
 
       <!-- input -->
-      <v-text-field
-        label="todo"
-        v-model="newTask"
-        @keyup.enter="addTodo"
-      ></v-text-field>
+      <v-text-field label="todo" v-model="newTask" @keyup.enter="addTodo"></v-text-field>
       <v-btn small color="success" @click="addTodo()">
         <v-icon dark>mdi-plus</v-icon>
       </v-btn>
@@ -24,9 +20,8 @@
               <v-list-item-icon>
                 <v-icon>mdi-calendar-check</v-icon>
               </v-list-item-icon>
-              <v-list-item-content>
-                {{ todo.name }}
-              </v-list-item-content>
+
+              <v-list-item-content>{{ todo.name }}</v-list-item-content>
 
               <v-text-field
                 label="todo"
@@ -36,29 +31,21 @@
               ></v-text-field>
 
               <span v-if="!editId">
-                <v-btn class="mx-2" small color="primary" @click="edit(todo)"
-                  ><v-icon>mdi-pencil-outline</v-icon></v-btn
-                >
-                <v-btn
-                  class="mx-2"
-                  small
-                  color="warning"
-                  @click="deleteTodo(todo.id)"
-                  ><v-icon>mdi-delete</v-icon></v-btn
-                >
+                <v-btn class="mx-2" small color="primary" @click="edit(todo)">
+                  <v-icon>mdi-pencil-outline</v-icon>
+                </v-btn>
+                <v-btn class="mx-2" small color="warning" @click="deleteTodo(todo.id)">
+                  <v-icon>mdi-delete</v-icon>
+                </v-btn>
               </span>
 
               <span v-if="editId === todo.id">
-                <v-btn
-                  class="mx-2"
-                  small
-                  color="primary"
-                  @click="updateTodo(todo)"
-                  ><v-icon>mdi-check</v-icon></v-btn
-                >
-                <v-btn class="mx-2" small color="error" @click="cancel()"
-                  ><v-icon>mdi-cancel</v-icon></v-btn
-                >
+                <v-btn class="mx-2" small color="primary" @click="updateTodo(todo)">
+                  <v-icon>mdi-check</v-icon>
+                </v-btn>
+                <v-btn class="mx-2" small color="error" @click="cancel()">
+                  <v-icon>mdi-cancel</v-icon>
+                </v-btn>
               </span>
             </v-list-item>
           </v-list-item-group>
@@ -88,7 +75,7 @@ export default {
 
     async addTodo() {
       const additem = {
-        title: this.newTask,
+        // title: this.newTask,
         name: this.newTask,
       };
       // await axios.post("http://192.168.1.44:3000/task/add", additem);

@@ -1,7 +1,7 @@
 {
   "list": [
     {
-      "name": "Sarapan, lanjut ke praxis",
+      "name": "Sarapan",
       "id": 1
     },
     {
@@ -9,19 +9,12 @@
       "id": 2
     },
     {
-      "title": "Makan siang",
-      "name": "Makan siang",
+      "name": "Futsal kalah bayar lapangan dong",
       "id": 3
     },
     {
-      "title": "Tidur siang",
-      "name": "Tidur siang",
+      "name": "aasdas",
       "id": 4
-    },
-    {
-      "title": "Main game",
-      "name": "Main game",
-      "id": 5
     }
   ]
 }
