@@ -11,7 +11,9 @@ const state = {
 const getters = {
   allPosts: (state) => state.posts.slice(0, 10),
 };
-
+const mutations = {
+  getPosts: (state, posts) => (state.posts = posts),
+};
 const actions = {
   async getAllposts({ commit }) {
     const response = await axios.get(
@@ -19,10 +21,6 @@ const actions = {
     );
     commit("getPosts", response.data);
   },
-};
-
-const mutations = {
-  getPosts: (state, posts) => (state.posts = posts),
 };
 
 // export default {

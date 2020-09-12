@@ -21,7 +21,7 @@ export default {
 
   computed: mapGetters(["allPosts"]),
 
-  created() {
+  mounted() {
     this.getAllposts();
   },
 };
