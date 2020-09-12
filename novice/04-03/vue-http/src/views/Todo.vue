@@ -13,8 +13,9 @@
 
     <!-- list item -->
     <v-container>
-      <v-card class="mx-auto" max-width="800">
+      <v-card class="mx-auto">
         <v-list>
+          <h4>Task List</h4>
           <v-list-item-group>
             <v-list-item v-for="todo in todos" :key="todo.id">
               <v-list-item-icon>

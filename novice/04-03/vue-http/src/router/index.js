@@ -28,6 +28,21 @@ const routes = [
     component: () =>
       import(/* webpackChunkName: "about" */ "../views/Todo.vue"),
   },
+  {
+    path: "/toy",
+    name: "Toy",
+    component: () => import("../views/Toys.vue"),
+  },
+  {
+    path: "/detail/:id",
+    name: "Detail",
+    component: () => import("../views/DetailToy.vue"),
+  },
+  {
+    path: "/edit/:id",
+    name: "Edit",
+    component: () => import("../views/EditToy.vue"),
+  },
 ];
 
 const router = new VueRouter({
